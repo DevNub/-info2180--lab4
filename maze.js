@@ -11,9 +11,10 @@ window.onload = function(){
   hitBoundary = document.querySelectorAll(".boundary");
   
 
+  start.onclick = reset;
+
   start.onmouseover = function(){
     begin = true;
-    reset();
     
     for(var i=0; i<hitBoundary.length-1; i++){
       hitBoundary[i].onmouseover=iloss;
