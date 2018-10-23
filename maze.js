@@ -11,9 +11,10 @@ window.onload = function(){
   hitBoundary = document.querySelectorAll(".boundary");
   
 
-
   start.onmouseover = function(){
     begin = true;
+    reset();
+    
     for(var i=0; i<hitBoundary.length-1; i++){
       hitBoundary[i].onmouseover=iloss;
     }
@@ -27,7 +28,7 @@ window.onload = function(){
 
  function won(){
    alert("You won!");
-   gameStart = false;
+   begin = false;
  }
 
 
@@ -36,7 +37,17 @@ window.onload = function(){
      hitBoundary[i].className+=' youlose';
     }
    console.log('Sorry Try agiain');
+   begin = false;
   }
-  
+ 
+ function reset(){
+    //reset walls
+    for (var i=0; i<hitBoundary.length-1; i++){
+      if(hitBoundary[i].className =' youlose'){
+        hitBoundary[i].className = "boundary";
+      }
+      
+    }
+ } 
 }
 
