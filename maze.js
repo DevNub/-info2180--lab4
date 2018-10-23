@@ -1,3 +1,4 @@
+var status;
 var start;
 var end;
 var begin;
@@ -11,11 +12,14 @@ window.onload = function(){
   hitBoundary = document.querySelectorAll(".boundary");
   
 
-  start.onclick = reset;
+  start.onclick = function(){
+    reset();
+    status = document.getElementById("status").innerText='\nMove your mouse from S to E to win!';
+  }
 
   start.onmouseover = function(){
     begin = true;
-    
+    //status = document.getElementById("status").innerText='Move your mouse from S to E to win!';
     for(var i=0; i<hitBoundary.length-1; i++){
       hitBoundary[i].onmouseover=iloss;
     }
@@ -29,6 +33,7 @@ window.onload = function(){
 
  function won(){
    alert("You won!");
+   status = document.getElementById("status").innerText='Winner Winner Chicken Dinner';
    begin = false;
  }
 
@@ -38,6 +43,7 @@ window.onload = function(){
      hitBoundary[i].className+=' youlose';
     }
    console.log('Sorry Try agiain');
+   status = document.getElementById("status").innerText='Sorry, you did not make it'+'\nClick S to restart';
    begin = false;
   }
  
