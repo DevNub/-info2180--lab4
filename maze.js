@@ -1,3 +1,4 @@
+var maze;
 var status;
 var start;
 var end;
@@ -6,6 +7,7 @@ var hitBoundary;
 
 window.onload = function(){
 
+  maze = document.getElementById("maze");
   start = document.getElementById("start");
   end = document.getElementById("end");
   begin  = false;
@@ -29,7 +31,10 @@ window.onload = function(){
     if(begin) won();
   }
  
-
+  maze.onmouseleave = function(){
+    status = document.getElementById("status").innerText='Attempt to cheat detected';
+    iloss();
+  }
 
  function won(){
    alert("You won!");
